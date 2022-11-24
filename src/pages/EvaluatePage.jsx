@@ -20,13 +20,16 @@ const EvaluatePage = () => {
   const [ gameFinalRoundList, setFinalRoundList ] = useState([]);       // 결승
 
   const [boxState, setBoxState] = useState(false);
+  const currentSigner = useRef(null);
 
-  const startFadeEffect = () => {
+  const startFadeEffect = (signer) => {
+    currentSigner.current = signer.name
     setBoxState(true);
 
     setTimeout(() => {
      setBoxState(false);
-    }, 1500);
+     currentSigner.current = null;
+    }, 1000);
   };
 
   const makeGameList = (list, len) => {
@@ -54,7 +57,7 @@ const EvaluatePage = () => {
   }
 
   const selectSinger = (singer) => {
-    startFadeEffect();
+    startFadeEffect(singer);
 
     setTimeout(() => {
       if (currentRound.current <= 3) {
@@ -174,18 +177,28 @@ const EvaluatePage = () => {
                 </h2>
 
                 <div className="btn-wrap">
-                  <div className="btn-outter">
-                    <button className="btn-choice" onClick={() => selectSinger(gameList[0][0][0])}>
-                      <span className="btn-name">
-                        {gameList[0][0][0].name}
-                      </span>
-                    </button>
-                    <button className="btn-choice" onClick={() => selectSinger(gameList[0][0][1])}>
-                      <span className="btn-name">
-                        {gameList[0][0][1].name}
-                      </span>
-                    </button>
-                  </div>
+                  {
+                    boxState ? (
+                      <button className="btn-selected">
+                        <span className="btn-name">
+                          { currentSigner.current }
+                        </span>
+                      </button>
+                    ) : (
+                    <div className="btn-outter">
+                      <button className="btn-choice" onClick={() => selectSinger(gameList[0][0][0])}>
+                        <span className="btn-name">
+                          {gameList[0][0][0].name}
+                        </span>
+                      </button>
+                      <button className="btn-choice" onClick={() => selectSinger(gameList[0][0][1])}>
+                        <span className="btn-name">
+                          {gameList[0][0][1].name}
+                        </span>
+                      </button>
+                    </div>
+                    )
+                  }
                 </div>
               </div>
 
