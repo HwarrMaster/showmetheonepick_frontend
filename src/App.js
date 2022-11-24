@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
+
+import MainPage from 'pages/MainPage';
+import EvaluatePage from 'pages/EvaluatePage';
+import OnePickPage from 'pages/OnePick';
+import ResultPage from 'pages/ResultPage';
 
 function App() {
+  function appHeight() {
+    const doc = document.documentElement
+    doc.style.setProperty('--app-height', `${window.innerHeight}px`)
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', appHeight)
+    appHeight();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <Router>
+        <Routes>
+          <Route path="" element={<MainPage />} />
+          <Route path="/evaluate" element={<EvaluatePage />} />
+          <Route path="/onepick" element={<OnePickPage />} />
+          <Route path="/result" element={<ResultPage />} />
+        </Routes>
+      </Router>
+    </React.Fragment>
   );
 }
 

@@ -1,0 +1,113 @@
+.no-padding-container {
+  padding: 0 !important;
+
+  .wrapper {
+    width: 100%;
+    height: var(--app-height);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background-color: #000;
+    overflow: hidden;
+
+    .video-box {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+
+      .video {
+        width: 100%;
+        height: 100%;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: 0;
+      }
+    }
+
+    .content-box {
+      // height: 33%;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #fff;
+
+        margin-bottom: 16px;
+      }
+
+      .btn-wrap {
+        width: 100%;
+        padding: 0 16px;
+
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .btn-outter {
+        width: 100%;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+      }
+
+      .btn-choice {
+        width: 50%;
+        height: 80px;
+
+        border: none;
+
+        font-size: 24px;
+        font-weight: 700;
+        background-color: #fff;
+
+        &:first-child {
+          border-top-left-radius: 16px;
+          border-bottom-left-radius: 16px;
+          border-right: 1px solid #dedede;
+
+          .btn-name {
+            background: linear-gradient(99.37deg, #2C7DF7 16.7%, #00FF38 97.09%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+        }
+
+        &:last-child {
+          border-top-right-radius: 16px;
+          border-bottom-right-radius: 16px;
+
+          .btn-name {
+            background: linear-gradient(99.37deg, #FF9900 16.7%, #FF0000 97.09%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+        }
+      }
+    }
+  }
+}
+
+.animate {
+  animation: opacity 1.3s ease;
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

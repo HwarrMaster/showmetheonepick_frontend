@@ -1,0 +1,63 @@
+.landing-wrap {
+  width: 100%;
+  height: var(--app-height);
+
+  display: flex;
+  flex-direction: column-reverse;
+  position: relative;
+
+  text-align: center;
+
+  background-image: url('../assets/images/landing.png');
+  background-size: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+
+  .overlay {
+    width: 100%;
+    height: 250px;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 70%);
+  }
+
+  .landing_title_img {
+    width: 90%;
+    position: absolute;
+    bottom: 22%;
+    left: 5%;
+  }
+}
+
+.landing-title {
+  font-size: 1.2rem;
+  color: #fff;
+
+  z-index: 1;
+}
+
+.btn-start {
+  width: 90%;
+  margin: 16px auto;
+  padding: 12px 0;
+
+  border: none;
+  border-radius: 10px;
+
+  background-color: #fff;
+  color: black;
+  font-size: 1.5rem;
+  font-weight: 600;
+
+  z-index: 1;
+}
+
+p {
+  margin-bottom: 40px !important;
+  color: #fff;
+
+  z-index: 1;
+}
